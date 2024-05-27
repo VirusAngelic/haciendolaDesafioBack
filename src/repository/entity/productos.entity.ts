@@ -1,10 +1,7 @@
 import { Column, Model, Table } from 'sequelize-typescript';
 
-@Table
+@Table({ timestamps: false })
 export class Productos extends Model {
-  @Column
-  int_idproducto: number;
-
   @Column
   str_handle: string;
 
@@ -18,7 +15,7 @@ export class Productos extends Model {
   str_sku: string;
 
   @Column
-  in_gram: string;
+  int_grams: string;
 
   @Column
   int_stock: string;

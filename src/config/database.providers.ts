@@ -1,8 +1,10 @@
 import { Sequelize } from 'sequelize-typescript';
+import { PROVIDERS_CONS } from '@repository/cons/providers.cons';
+import { Productos } from '@repository/entity/productos.entity';
 
 export const databaseProviders = [
   {
-    provide: 'SEQUELIZE',
+    provide: PROVIDERS_CONS.sequelize,
     useFactory: async () => {
       const sequelize = new Sequelize({
         dialect: 'mysql',
@@ -12,7 +14,7 @@ export const databaseProviders = [
         password: '4689',
         database: 'tienda',
       });
-      sequelize.addModels([]);
+      sequelize.addModels([Productos]);
       await sequelize.sync();
       return sequelize;
     },
